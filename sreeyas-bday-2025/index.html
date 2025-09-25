@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sreeya's Birthday 2025 🎂</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Birthday-specific styles */
+        body {
+            background: linear-gradient(135deg, #fce7f3, #fef2f2, #fce7f3);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .birthday-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            position: relative;
+        }
+
+        .rose-decoration {
+            position: absolute;
+            font-size: 3rem;
+            color: #f472b6;
+            animation: slow-pulse 4s ease-in-out infinite;
+        }
+
+        .rose-decoration:nth-child(1) { top: 2.5rem; left: 2.5rem; }
+        .rose-decoration:nth-child(2) { top: 5rem; right: 5rem; font-size: 2.5rem; animation: slow-bounce 3s infinite; }
+        .rose-decoration:nth-child(3) { bottom: 5rem; left: 5rem; font-size: 3.5rem; }
+        .rose-decoration:nth-child(4) { bottom: 2.5rem; right: 2.5rem; font-size: 2rem; animation: slow-bounce 3s infinite; }
+        .rose-decoration:nth-child(5) { top: 50%; left: 1.25rem; font-size: 2rem; animation: gentle-float 10s ease-in-out infinite; }
+        .rose-decoration:nth-child(6) { top: 33%; right: 1.25rem; font-size: 2.5rem; animation: heart-beat 4s ease-in-out infinite; }
+        .rose-decoration:nth-child(7) { bottom: 33%; left: 25%; font-size: 1.5rem; }
+        .rose-decoration:nth-child(8) { top: 66%; right: 25%; font-size: 2rem; animation: slow-bounce 3s infinite; }
+        .rose-decoration:nth-child(9) { top: 25%; left: 33%; font-size: 1.5rem; animation: gentle-float 10s ease-in-out infinite; }
+        .rose-decoration:nth-child(10) { bottom: 25%; right: 33%; font-size: 2rem; animation: heart-beat 4s ease-in-out infinite; }
+
+        .floating-hearts {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: #f472b6;
+            font-size: 1rem;
+        }
+
+        .content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .countdown-section {
+            display: block;
+        }
+
+        .card-section {
+            display: none;
+        }
+
+        .countdown-number {
+            font-size: 4rem;
+            color: #dc2626;
+            font-weight: bold;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #fce7f3, #fecaca);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 4px solid #f9a8d4;
+            max-width: 28rem;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: all 1s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        .card.opened {
+            transform: scale(1.5) rotate(12deg);
+        }
+
+        .message-section {
+            display: none;
+            margin-top: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .message-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 4px solid #f9a8d4;
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+
+        .login-form {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-width: 28rem;
+            width: 100%;
+            border: 2px solid #fce7f3;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #be185d;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #f9a8d4;
+            border-radius: 0.75rem;
+            font-size: 1.125rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: white;
+            color: #1f2937;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #ec4899;
+            box-shadow: 0 0 0 2px #fce7f3;
+        }
+
+        .form-input:hover {
+            border-color: #f472b6;
+        }
+
+        .btn {
+            width: 100%;
+            background: linear-gradient(90deg, #ec4899, #dc2626);
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background: linear-gradient(90deg, #db2777, #b91c1c);
+            transform: scale(1.05);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            color: #dc2626;
+            text-align: center;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes slow-pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        @keyframes slow-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes gentle-float {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.5; }
+            25% { transform: translateY(-12px) translateX(3px) rotate(1deg); opacity: 0.8; }
+            50% { transform: translateY(-20px) translateX(-2px) rotate(-1deg); opacity: 0.6; }
+            75% { transform: translateY(-12px) translateX(2px) rotate(0.5deg); opacity: 0.7; }
+        }
+
+        @keyframes heart-beat {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            25% { transform: scale(1.05); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            75% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.6; }
+            20% { transform: translateY(-8px) translateX(2px) rotate(1deg); opacity: 0.8; }
+            40% { transform: translateY(-15px) translateX(-1px) rotate(-0.5deg); opacity: 0.7; }
+            60% { transform: translateY(-10px) translateX(1px) rotate(0.5deg); opacity: 0.9; }
+            80% { transform: translateY(-18px) translateX(-2px) rotate(-1deg); opacity: 0.6; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="birthday-container">
+        <!-- Rose decorations -->
+        <div class="rose-decoration">🌹</div>
+        <div class="rose-decoration">🌹</div>
+        <div class="rose-decoration">🌹</div>
+        <div class="rose-decoration">🌹</div>
+        <div class="rose-decoration">🌹</div>
+        <div class="rose-decoration">🌹</div>
+        <div class="rose-decoration">🌹</div>
+        <div class="rose-decoration">🌹</div>
+        <div class="rose-decoration">🌹</div>
+        <div class="rose-decoration">🌹</div>
+
+        <!-- Floating hearts (shown after login) -->
+        <div class="floating-hearts hidden" id="floatingHearts">
+            <!-- Hearts will be generated by JavaScript -->
+        </div>
+
+        <div class="content">
+            <!-- Login Section -->
+            <div id="loginSection">
+                <div class="login-form">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h1 style="font-size: 2.5rem; font-weight: bold; color: #be185d; margin-bottom: 0.5rem; animation: pulse 1s ease-in-out infinite;">
+                            🎂 Happy Birthday! 🎂
+                        </h1>
+                        <p style="color: #ec4899; font-size: 1.125rem;">
+                            Enter the secret password to see your surprise!
+                        </p>
+                    </div>
+                    
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="password" class="form-label">Secret Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                class="form-input"
+                                placeholder="Enter password..."
+                                required
+                            />
+                        </div>
+                        
+                        <div id="errorMessage" class="error-message hidden"></div>
+                        
+                        <button type="submit" class="btn" id="submitBtn">
+                            Enter the Magic! ✨
+                        </button>
+                    </form>
+                    
+                    <div style="margin-top: 1.5rem; text-align: center;">
+                        <p style="color: #f472b6; font-size: 0.875rem;">
+                            💕 Made with love for the most special person 💕
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Countdown Section -->
+            <div id="countdownSection" class="countdown-section hidden">
+                <div style="font-size: 4rem; animation: bounce 1s ease-in-out infinite;">💌</div>
+                <h1 style="font-size: 2.5rem; font-weight: bold; color: #be185d; animation: pulse 1s ease-in-out infinite;">
+                    Your special card is coming...
+                </h1>
+                <div class="countdown-number" id="countdownNumber">10</div>
+                <p style="font-size: 1.5rem; color: #ec4899; animation: pulse 1s ease-in-out infinite;">
+                    Get ready!!! ✨
+                </p>
+            </div>
+
+            <!-- Card Section -->
+            <div id="cardSection" class="card-section hidden">
+                <h1 style="font-size: 2.5rem; font-weight: bold; color: #be185d; animation: pulse 1s ease-in-out infinite;">
+                    Your Special Card is Here! 💌
+                </h1>
+                
+                <div style="margin-top: 2rem;">
+                    <div class="card" id="birthdayCard">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">💌</div>
+                        <p style="font-size: 1.5rem; color: #be185d; font-weight: bold;">
+                            Click to open!
+                        </p>
+                    </div>
+                    
+                    <p id="clickPrompt" style="margin-top: 1.5rem; font-size: 1.5rem; color: #ec4899; animation: pulse 1s ease-in-out infinite;">
+                        Click the card to open it! 💕
+                    </p>
+                </div>
+            </div>
+
+            <!-- Message Section -->
+            <div id="messageSection" class="message-section hidden">
+                <div class="message-card">
+                    <div style="font-size: 4rem; margin-bottom: 1.5rem; animation: bounce 1s ease-in-out infinite;">🎂</div>
+                    <h2 style="font-size: 2.5rem; font-weight: bold; color: #be185d; margin-bottom: 1rem;">
+                        Happy Birthday 💕
+                    </h2>
+                    <div style="font-size: 1.125rem; color: #be185d; line-height: 1.75;">
+                        <p style="font-weight: 600; color: #9d174d;">
+                            Dear babe,
+                        </p>
+                        <p style="margin: 1rem 0;">
+                            First I want to say Happy Birthday! I just want you to know how grateful I am to have you in my life. You make me extremely happy, through your jokes, the way you care for me, and how you always support me. Even from miles away, you are the reason I push forward.
+                        </p>
+                        <p style="margin: 1rem 0;">
+                            Today is your day and I hope today brings you all the love you give to everyone else. We will do a proper celebration soon, but until then, let's celebrate everyday as your day!
+                        </p>
+                        <p style="margin: 1rem 0;">
+                            Thank you for being my favorite person. I love you more than I can write in one message.
+                        </p>
+                        <p style="font-weight: 600; color: #9d174d; margin-top: 1.5rem;">
+                            Happy birthday babe!
+                        </p>
+                        <p style="font-size: 1.25rem; color: #be185d; margin-top: 1rem;">
+                            Love,<br />
+                            Poopoo ❤️
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        let isAuthenticated = false;
+        let showCard = false;
+        let isCardOpen = false;
+        let showMessage = false;
+        let countdown = 10;
+
+        // DOM elements
+        const loginSection = document.getElementById('loginSection');
+        const countdownSection = document.getElementById('countdownSection');
+        const cardSection = document.getElementById('cardSection');
+        const messageSection = document.getElementById('messageSection');
+        const floatingHearts = document.getElementById('floatingHearts');
+        const loginForm = document.getElementById('loginForm');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('errorMessage');
+        const submitBtn = document.getElementById('submitBtn');
+        const countdownNumber = document.getElementById('countdownNumber');
+        const birthdayCard = document.getElementById('birthdayCard');
+        const clickPrompt = document.getElementById('clickPrompt');
+
+        // Login form handler
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const password = passwordInput.value;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner"></span>Checking...';
+            
+            // Simulate loading
+            setTimeout(() => {
+                if (password === 'hbd-to-best-gf') {
+                    handleLogin(true);
+                } else {
+                    errorMessage.textContent = 'Incorrect password. Try again! 💕';
+                    errorMessage.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Enter the Magic! ✨';
+                }
+            }, 1000);
+        });
+
+        // Handle successful login
+        function handleLogin(success) {
+            if (success) {
+                isAuthenticated = true;
+                loginSection.classList.add('hidden');
+                countdownSection.classList.remove('hidden');
+                startCountdown();
+            }
+        }
+
+        // Start countdown
+        function startCountdown() {
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownNumber.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    showCard = true;
+                    countdownSection.classList.add('hidden');
+                    cardSection.classList.remove('hidden');
+                    showFloatingHearts();
+                }
+            }, 1000);
+        }
+
+        // Show floating hearts
+        function showFloatingHearts() {
+            floatingHearts.classList.remove('hidden');
+            
+            // Generate 15 floating hearts
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                
+                const animations = ['gentle-bounce', 'gentle-float', 'heart-beat', 'float'];
+                heart.style.animation = `${animations[i % 4]} ${8 + Math.random() * 6}s ease-in-out infinite`;
+                heart.style.animationDelay = `${Math.random() * 8}s`;
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.top = `${Math.random() * 100}%`;
+                heart.style.fontSize = `${0.8 + Math.random() * 0.4}rem`;
+                
+                const heartEmojis = ['💕', '❤️', '💖', '💗'];
+                heart.textContent = heartEmojis[i % 4];
+                
+                floatingHearts.appendChild(heart);
+            }
+        }
+
+        // Card click handler
+        birthdayCard.addEventListener('click', () => {
+            isCardOpen = true;
+            birthdayCard.classList.add('opened');
+            clickPrompt.classList.add('hidden');
+            
+            setTimeout(() => {
+                showMessage = true;
+                messageSection.classList.remove('hidden');
+            }, 1000);
+        });
+
+        // Clear error message when typing
+        passwordInput.addEventListener('input', () => {
+            errorMessage.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
