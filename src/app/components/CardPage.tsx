@@ -136,7 +136,7 @@ export default function CardPage() {
                       First I want to say Happy Birthday! I just want you to know how grateful I am to have you in my life. You make me extremely happy, through your jokes, the way you care for me, and how you always support me. Even from miles away, you are the reason I push forward.
                     </p>
                     <p>
-                      Today is your day and I hope today brings you all the love you give to everyone else. We will do a proper celebration soon, but until then, let's celebrate everyday as your day!
+                    Today is your day and I hope today brings you all the love you give to everyone else. We will do a proper celebration soon, but until then, let&apos;s celebrate everyday as your day!
                     </p>
                     <p>
                       Thank you for being my favorite person. I love you more than I can write in one message.
